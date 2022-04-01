@@ -1,7 +1,9 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:ghawejobapp/pages/home_screen.dart';
 import 'package:ghawejobapp/pages/login_screen.dart';
+import 'package:ghawejobapp/pages/register_screen.dart';
 import 'package:ghawejobapp/pages/splash_screen.dart';
 
 void main() => runApp(
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       title: 'Ghawe Job Apps',
       theme: ThemeData.light(),
-      home: const LoginScreen(),
+      home: const HomeScreen(),
     );
   }
 }

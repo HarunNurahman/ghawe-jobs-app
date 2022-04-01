@@ -10,3 +10,5 @@ TextStyle txtFieldStyle = GoogleFonts.roboto(
     fontWeight: FontWeight.w200, color: Colors.grey.withOpacity(0.5));
 TextStyle btnStyle = GoogleFonts.roboto(
     fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white);
+TextStyle categoryStyle = GoogleFonts.roboto(
+    fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black);
