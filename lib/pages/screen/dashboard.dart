@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ghawejobapp/shared/class.dart';
 import 'package:ghawejobapp/shared/themes.dart';
 
 class Dashboard extends StatelessWidget {
@@ -8,27 +9,80 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryColor,
-      body: SafeArea(
-        child: Column(
-          children: [
-            Column(
-              children: [
-                header(),
-                // const SizedBox(height: 24),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(30),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(30),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            children: [
+              Column(
+                children: [
+                  header(),
+                  // const SizedBox(height: 24),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(30),
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(30),
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        searchFilter(context),
+                        const SizedBox(height: 32),
+                        const mainCategory(
+                            category: 'Based on Your Preferences'),
+                        const JobList()
+                      ],
                     ),
                   ),
-                ),
-              ],
-            )
-          ],
+                ],
+              )
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Row searchFilter(BuildContext context) {
+    return Row(
+      children: [
+        searchBar(context),
+        const SizedBox(width: 8),
+        Image.asset(
+          'assets/icon/ic_filter.png',
+          width: 40,
+          height: 40,
+        ),
+      ],
+    );
+  }
+
+  Container searchBar(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      width: MediaQuery.of(context).size.width * 0.72,
+      height: 40,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: TextField(
+              onChanged: (value) {},
+              decoration: InputDecoration(
+                  hintText: 'Search Jobs or Positions',
+                  hintStyle: txtFieldStyle,
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none),
+            ),
+          ),
+          const Icon(Icons.search_outlined)
+        ],
       ),
     );
   }
@@ -103,8 +157,6 @@ class Dashboard extends StatelessWidget {
 //   ),
 // )
 
-
-
 // child: Container(
 //   padding: const EdgeInsets.symmetric(horizontal: 20),
 //   margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -133,3 +185,15 @@ class Dashboard extends StatelessWidget {
 //     ],
 //   ),
 // ),
+
+// child: Row(
+//  children: [
+//    searchBar(context),
+//    const SizedBox(width: 8),
+//    Image.asset(
+//      'assets/icon/ic_filter.png',
+//      width: 40,
+//      height: 40,
+//    ),
+//  ],
+//),

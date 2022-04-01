@@ -31,91 +31,95 @@ class _HomeScreenState extends State<HomeScreen> {
         child: currentScreen,
         bucket: bucket,
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: Container(
-          height: 60,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  MaterialButton(
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = Dashboard();
-                        currentTab = 0;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.home_outlined,
-                          color: currentTab == 0 ? primaryColor : Colors.grey,
-                          size: 32,
-                        )
-                      ],
-                    ),
+      bottomNavigationBar: bottonNav(),
+    );
+  }
+
+  BottomAppBar bottonNav() {
+    return BottomAppBar(
+      child: Container(
+        height: 60,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                MaterialButton(
+                  onPressed: () {
+                    setState(() {
+                      currentScreen = Dashboard();
+                      currentTab = 0;
+                    });
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.home_outlined,
+                        color: currentTab == 0 ? primaryColor : Colors.grey,
+                        size: 32,
+                      )
+                    ],
                   ),
-                  MaterialButton(
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = Explore();
-                        currentTab = 2;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.explore_outlined,
-                          color: currentTab == 2 ? primaryColor : Colors.grey,
-                          size: 32,
-                        )
-                      ],
-                    ),
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    setState(() {
+                      currentScreen = Explore();
+                      currentTab = 2;
+                    });
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.explore_outlined,
+                        color: currentTab == 2 ? primaryColor : Colors.grey,
+                        size: 32,
+                      )
+                    ],
                   ),
-                  MaterialButton(
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = MyApplicant();
-                        currentTab = 3;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.file_present,
-                          color: currentTab == 3 ? primaryColor : Colors.grey,
-                          size: 32,
-                        )
-                      ],
-                    ),
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    setState(() {
+                      currentScreen = MyApplicant();
+                      currentTab = 3;
+                    });
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.file_present,
+                        color: currentTab == 3 ? primaryColor : Colors.grey,
+                        size: 32,
+                      )
+                    ],
                   ),
-                  MaterialButton(
-                    onPressed: () {
-                      setState(() {
-                        currentScreen = Profile();
-                        currentTab = 4;
-                      });
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.account_circle_outlined,
-                          color: currentTab == 4 ? primaryColor : Colors.grey,
-                          size: 32,
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    setState(() {
+                      currentScreen = Profile();
+                      currentTab = 4;
+                    });
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.account_circle_outlined,
+                        color: currentTab == 4 ? primaryColor : Colors.grey,
+                        size: 32,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            )
+          ],
         ),
       ),
     );
