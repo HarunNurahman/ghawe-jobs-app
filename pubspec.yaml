@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cloud_firestore: ^3.1.11
   cupertino_icons: ^1.0.2
   device_preview: ^1.0.0
   dio: ^4.0.6
@@ -35,6 +36,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  fluttertoast: ^8.0.9
   get: ^4.6.1
   google_fonts: ^2.3.1
   http: ^0.13.4

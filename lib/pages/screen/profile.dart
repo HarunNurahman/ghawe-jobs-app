@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghawejobapp/shared/class.dart';
 import 'package:ghawejobapp/shared/themes.dart';
+import 'package:ghawejobapp/shared/variables.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -12,7 +13,11 @@ class Profile extends StatelessWidget {
         child: SafeArea(
           child: Center(
             child: Column(
-              children: [header(), bodyAbout(context), bodySkills()],
+              children: [
+                header(),
+                bodyAbout(context),
+                bodySkills(),
+              ],
             ),
           ),
         ),
@@ -170,14 +175,10 @@ class header extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 20),
-          const Text(
-            'Harun Nurahman',
-            style: TextStyle(
-                color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
-          ),
+          UsernamePreferences(username: nameController.text),
           const SizedBox(height: 2),
           const Text(
-            'Mobile Developer',
+            'Flutter Developer',
             style: TextStyle(
                 color: Colors.white, fontSize: 16, fontWeight: FontWeight.w300),
           ),

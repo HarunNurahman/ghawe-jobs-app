@@ -70,6 +70,33 @@ class TextPreferences extends StatelessWidget {
   }
 }
 
+class UsernamePreferences extends StatelessWidget {
+  const UsernamePreferences({
+    Key? key,
+    required this.username,
+  }) : super(key: key);
+
+  final String username;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Stack(
+        children: [
+          Text(
+            username,
+            style: titleStyle.copyWith(
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+              fontSize: 20,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
 class RecommendedJobCard extends StatelessWidget {
   const RecommendedJobCard({
     Key? key,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghawejobapp/shared/class.dart';
 import 'package:ghawejobapp/shared/themes.dart';
+import 'package:ghawejobapp/shared/variables.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -106,16 +107,11 @@ class Dashboard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 8),
-              Text(
-                'Harun Nurahman',
-                style: titleStyle.copyWith(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
-              ),
+              UsernamePreferences(username: nameController.text),
+              
               const SizedBox(height: 2),
-              Text('Mobile Developer',
+              Text(
+                'Flutter Developer',
                   style: subtitleStyle.copyWith(
                     color: Colors.white,
                     fontWeight: FontWeight.w300,

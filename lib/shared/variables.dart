@@ -1,25 +1,38 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ghawejobapp/pages/home_screen.dart';
 import 'package:ghawejobapp/pages/login_screen.dart';
+import 'package:ghawejobapp/pages/register_screen.dart';
 import 'package:ghawejobapp/shared/themes.dart';
 
 TextEditingController emailController = TextEditingController();
 TextEditingController passController = TextEditingController();
+TextEditingController nameController = TextEditingController();
 
-RichText txtRegister() {
+RichText txtRegister(BuildContext context) {
   return RichText(
-    text: const TextSpan(
+    text: TextSpan(
       style: TextStyle(
           fontSize: 14, fontWeight: FontWeight.w300, color: Colors.black),
       children: <TextSpan>[
         TextSpan(text: 'Dont Have an Account? '),
         TextSpan(
-            text: 'Register Here',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
-                decoration: TextDecoration.underline))
+          text: 'Register Here',
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.green,
+              decoration: TextDecoration.underline),
+          recognizer: TapGestureRecognizer()
+            ..onTap = () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RegisterScreen(),
+                ),
+              );
+            },
+        ),
       ],
     ),
   );
@@ -104,8 +117,7 @@ GestureDetector btnLogin(BuildContext context) {
       ),
     ),
     onTap: () {
-      Route route = MaterialPageRoute(builder: (context) => const HomeScreen());
-      Navigator.push(context, route);
+      loginSubmit(context);
     },
   );
 }
@@ -128,9 +140,12 @@ GestureDetector btnRegister(BuildContext context) {
       ),
     ),
     onTap: () {
+      registerSubmit();
       Route route =
           MaterialPageRoute(builder: (context) => const LoginScreen());
       Navigator.push(context, route);
+      emailController.clear();
+      passController.clear();
     },
   );
 }
@@ -163,6 +178,12 @@ Container txtPass() {
       borderRadius: BorderRadius.circular(20),
     ),
     child: TextFormField(
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please enter your password';
+        }
+        return null;
+      },
       textAlignVertical: TextAlignVertical.center,
       obscureText: true,
       autocorrect: false,
@@ -191,6 +212,12 @@ Container txtEmail() {
       borderRadius: BorderRadius.circular(20),
     ),
     child: TextFormField(
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please enter your email';
+        }
+        return null;
+      },
       textAlignVertical: TextAlignVertical.center,
       autocorrect: false,
       enableSuggestions: false,
@@ -218,10 +245,16 @@ Container txtName() {
       borderRadius: BorderRadius.circular(20),
     ),
     child: TextFormField(
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Please enter your name';
+        }
+        return null;
+      },
       textAlignVertical: TextAlignVertical.center,
       autocorrect: false,
       enableSuggestions: false,
-      controller: emailController,
+      controller: nameController,
       decoration: InputDecoration(
         hintText: 'Enter Your Full Name',
         hintStyle: txtFieldStyle,
