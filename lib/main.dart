@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:ghawejobapp/pages/home_screen.dart';
 import 'package:ghawejobapp/pages/login_screen.dart';
 import 'package:ghawejobapp/pages/register_screen.dart';
+import 'package:ghawejobapp/pages/screen/dashboard.dart';
+import 'package:ghawejobapp/pages/screen/profile.dart';
 import 'package:ghawejobapp/pages/splash_screen.dart';
 
 void main() => runApp(

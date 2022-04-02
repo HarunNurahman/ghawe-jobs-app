@@ -18,11 +18,29 @@ class mainCategory extends StatelessWidget {
         Text(
           'See All',
           style: TextStyle(
-            fontSize: 12,
+            fontSize: 14,
             color: primaryColor,
             decoration: TextDecoration.underline,
           ),
         )
+      ],
+    );
+  }
+}
+
+class secondCategory extends StatelessWidget {
+  const secondCategory({
+    Key? key,
+    required this.category,
+  }) : super(key: key);
+
+  final String category;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        TextPreferences(text: category),
       ],
     );
   }
@@ -43,7 +61,8 @@ class TextPreferences extends StatelessWidget {
         children: [
           Text(
             text,
-            style: titleStyle.copyWith(fontWeight: FontWeight.w700),
+            style:
+                titleStyle.copyWith(fontWeight: FontWeight.w700, fontSize: 18),
           )
         ],
       ),
@@ -56,13 +75,15 @@ class RecommendedJobCard extends StatelessWidget {
     Key? key,
     required this.comp,
     required this.jobdesk,
-    required this.require,
+    required this.require1,
+    required this.require2,
+    required this.applicants,
     required this.status,
     required this.image,
     required this.pressed,
   }) : super(key: key);
 
-  final String comp, jobdesk, require, status, image;
+  final String comp, jobdesk, require1, require2, status, image, applicants;
   final Function pressed;
 
   @override
@@ -70,75 +91,108 @@ class RecommendedJobCard extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       child: Container(
-        margin: const EdgeInsets.only(top: 14, left: 30, bottom: 50),
-        width: size.width * 0.47,
-        color: Colors.white,
-        child: Column(
+        width: size.width * 0.5,
+        height: size.height * 0.3,
+        margin: const EdgeInsets.only(right: 14, top: 12),
+        padding: const EdgeInsets.only(top: 10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: primaryColor),
+        ),
+        child: Row(
           children: [
-            Image.asset(image),
             Container(
-              padding: const EdgeInsets.all(20 / 2),
-              decoration: BoxDecoration(
-                border: Border.all(color: Color(0xff14A800), width: 1),
-                color: Colors.white,
-                borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10)),
-                boxShadow: const [
-                  BoxShadow(
-                      offset: Offset(0, 10),
-                      blurRadius: 50,
-                      color: Color(0x3b14A800)),
+              height: size.height * 0.25,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  bottomLeft: Radius.circular(16),
+                ),
+              ),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    image,
+                    width: 64,
+                    height: 64,
+                  ),
+                  const SizedBox(height: 8),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        jobdesk.toUpperCase(),
+                        style: titleStyle.copyWith(
+                            fontSize: 16,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        '$comp\n'.toUpperCase(),
+                        style: titleStyle.copyWith(
+                          color: primaryColor,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        '$applicants\n'.toUpperCase(),
+                        style: titleStyle.copyWith(
+                          color: Color(0xFF7B7B7B),
+                          fontSize: 10,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(bottom: 12),
+                            height: size.height * 0.04,
+                            width: size.width * 0.2,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: Color(0xFFF2F2F2),
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Text(
+                              require1.toUpperCase(),
+                              style: titleStyle.copyWith(
+                                  color: Color(0xff7B7B7B),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 11),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          Container(
+                            margin: EdgeInsets.only(bottom: 12),
+                            height: size.height * 0.04,
+                            width: size.width * 0.2,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: Color(0xFFF2F2F2),
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Text(
+                              require2.toUpperCase(),
+                              style: titleStyle.copyWith(
+                                  color: Color(0xff7B7B7B),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 11),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
                 ],
               ),
-              child: Row(
-                children: <Widget>[
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: '$comp\n'.toUpperCase(),
-                          style: const TextStyle(
-                              color: Color(0xff0A5200),
-                              fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: '$jobdesk\n\n'.toUpperCase(),
-                          style: Theme.of(context)
-                              .textTheme
-                              .button
-                              ?.copyWith(fontSize: 12),
-                        ),
-                        TextSpan(
-                          text: '$require'.toUpperCase(),
-                          style: const TextStyle(
-                              color: Color(0xff7B7B7B),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 11),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Spacer(),
-                  Container(
-                    height: 23,
-                    width: 45,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: const Color(0xff46E9BC),
-                    ),
-                    child: Text(
-                      '$status',
-                      style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 8,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  ),
-                ],
-              ),
-            )
+            ),
           ],
         ),
       ),
@@ -158,22 +212,28 @@ class JobList extends StatelessWidget {
           RecommendedJobCard(
               image: 'assets/images/img_gojek.png',
               comp: 'Gojek',
-              jobdesk: 'Back-end Dev.',
-              require: 'Full Time',
+              jobdesk: 'Back-end Developer',
+              applicants: '100 Applicants',
+              require1: 'Full Time',
+              require2: 'Remote',
               status: 'Open',
               pressed: () {}),
           RecommendedJobCard(
               image: 'assets/images/img_tokped.png',
               comp: 'Tokopedia',
-              jobdesk: 'Project Mngr.',
-              require: 'Full Time',
+              jobdesk: 'Project Manager',
+              applicants: '100 Applicants',
+              require1: 'Full Time',
+              require2: 'Remote',
               status: 'Open',
               pressed: () {}),
           RecommendedJobCard(
               image: 'assets/images/img_grab2.png',
               comp: 'Grab',
-              jobdesk: 'UI/UX Des.',
-              require: 'Internship',
+              jobdesk: 'UI/UX Designer',
+              applicants: '100 Applicants',
+              require1: 'Full Time',
+              require2: 'Remote',
               status: 'Open',
               pressed: () {}),
         ],

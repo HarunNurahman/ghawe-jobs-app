@@ -33,7 +33,10 @@ class Dashboard extends StatelessWidget {
                         const SizedBox(height: 32),
                         const mainCategory(
                             category: 'Based on Your Preferences'),
-                        const JobList()
+                        const JobList(),
+                        const SizedBox(height: 32),
+                        const mainCategory(category: 'Most Recent Jobs'),
+                        const JobList(),
                       ],
                     ),
                   ),
@@ -102,18 +105,22 @@ class Dashboard extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 12),
+              const SizedBox(height: 8),
               Text(
                 'Harun Nurahman',
                 style: titleStyle.copyWith(
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
+                  fontSize: 20,
                 ),
               ),
               const SizedBox(height: 2),
               Text('Mobile Developer',
                   style: subtitleStyle.copyWith(
-                      color: Colors.white, fontWeight: FontWeight.w300)),
+                    color: Colors.white,
+                    fontWeight: FontWeight.w300,
+                    fontSize: 16),
+              ),
             ],
           ),
           const Spacer(),
