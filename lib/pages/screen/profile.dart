@@ -175,7 +175,7 @@ class header extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 20),
-          UsernamePreferences(username: nameController.text),
+          UsernamePreferences(email: emailController.text),
           const SizedBox(height: 2),
           const Text(
             'Flutter Developer',

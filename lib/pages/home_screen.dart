@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentTab = 0;
   final List<Widget> screens = [
     Dashboard(),
-    Explore(),
+    ExploreJobs(),
     MyApplicant(),
     Profile()
   ];
@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 MaterialButton(
                   onPressed: () {
                     setState(() {
-                      currentScreen = Explore();
+                      currentScreen = ExploreJobs();
                       currentTab = 2;
                     });
                   },

@@ -107,7 +107,7 @@ class Dashboard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 8),
-              UsernamePreferences(username: nameController.text),
+              UsernamePreferences(email: emailController.text),
               
               const SizedBox(height: 2),
               Text(

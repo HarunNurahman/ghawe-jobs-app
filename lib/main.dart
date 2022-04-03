@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       title: 'Ghawe Job Apps',
       theme: ThemeData.light(),
-      home: const SplashScreen(),
+      home: const HomeScreen(),
     );
   }
 }

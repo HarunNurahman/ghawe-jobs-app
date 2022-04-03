@@ -73,10 +73,10 @@ class TextPreferences extends StatelessWidget {
 class UsernamePreferences extends StatelessWidget {
   const UsernamePreferences({
     Key? key,
-    required this.username,
+    required this.email,
   }) : super(key: key);
 
-  final String username;
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -84,11 +84,11 @@ class UsernamePreferences extends StatelessWidget {
       child: Stack(
         children: [
           Text(
-            username,
+            email,
             style: titleStyle.copyWith(
               fontWeight: FontWeight.w600,
               color: Colors.white,
-              fontSize: 20,
+              fontSize: 18,
             ),
           )
         ],
