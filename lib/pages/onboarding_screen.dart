@@ -40,7 +40,7 @@ class onBoardingScreen extends StatelessWidget {
                           _controller.onboardingPages[index].desc,
                           style: GoogleFonts.poppins(fontSize: 12),
                           textAlign: TextAlign.center,
-                        ), 
+                        ),
                         Obx(
                           () => _controller.isLastBoard
                               ? Row(
@@ -59,7 +59,9 @@ class onBoardingScreen extends StatelessWidget {
                                           style: TextButton.styleFrom(
                                             backgroundColor: kPrimaryColor,
                                           ),
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            Get.toNamed('/login');
+                                          },
                                           child: Text(
                                             "Login".toUpperCase(),
                                             style: GoogleFonts.poppins(
