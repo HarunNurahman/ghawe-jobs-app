@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ghawejobapp/controller/onboarding_controller.dart';
 import 'package:ghawejobapp/shared/buttons.dart';
 import 'package:ghawejobapp/shared/constant.dart';
@@ -23,96 +24,104 @@ class onBoardingScreen extends StatelessWidget {
                   onPageChanged: _controller.selectedBoard,
                   itemCount: _controller.onboardingPages.length,
                   itemBuilder: (context, index) {
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                            _controller.onboardingPages[index].imageAsset),
-                        const SizedBox(height: 30),
-                        Text(
-                          _controller.onboardingPages[index].textTitle,
-                          style: GoogleFonts.poppins(
-                              fontSize: 20, fontWeight: FontWeight.w600),
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          _controller.onboardingPages[index].desc,
-                          style: GoogleFonts.poppins(fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                        Obx(
-                          () => _controller.isLastBoard
-                              ? Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        left: 30,
-                                        top: 30,
-                                      ),
-                                      child: SizedBox(
-                                        width: 145,
-                                        height: 45,
-                                        child: TextButton(
-                                          style: TextButton.styleFrom(
-                                            backgroundColor: kPrimaryColor,
-                                          ),
-                                          onPressed: () {
-                                            Get.toNamed('/login');
-                                          },
-                                          child: Text(
-                                            "Login".toUpperCase(),
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w600,
-                                              color: Colors.white,
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(
+                            _controller.onboardingPages[index].imageAsset,
+                            width: MediaQuery.of(context).size.width * 0.67,
+                          ),
+                          const SizedBox(height: 50),
+                          Text(
+                            _controller.onboardingPages[index].textTitle,
+                            style: GoogleFonts.poppins(
+                                fontSize: 20, fontWeight: FontWeight.w600),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            _controller.onboardingPages[index].desc,
+                            style: GoogleFonts.poppins(fontSize: 14),
+                            textAlign: TextAlign.center,
+                          ),
+                          Obx(
+                            () => _controller.isLastBoard
+                                ? Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 30,
+                                          top: 30,
+                                        ),
+                                        child: SizedBox(
+                                          width: 145,
+                                          height: 45,
+                                          child: TextButton(
+                                            style: TextButton.styleFrom(
+                                              backgroundColor: kPrimaryColor,
+                                            ),
+                                            onPressed: () {
+                                              Get.toNamed('/login');
+                                            },
+                                            child: Text(
+                                              "Login".toUpperCase(),
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w600,
+                                                color: Colors.white,
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        right: 30,
-                                        top: 30,
-                                      ),
-                                      child: Container(
-                                        width: 145,
-                                        height: 45,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          border: Border.all(
-                                            color: kPrimaryColor,
-                                            width: 1,
-                                          ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                          right: 30,
+                                          top: 30,
                                         ),
-                                        child: TextButton(
-                                          onPressed: () {},
-                                          child: Text(
-                                            "Register".toUpperCase(),
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w600,
+                                        child: Container(
+                                          width: 145,
+                                          height: 45,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            border: Border.all(
                                               color: kPrimaryColor,
+                                              width: 1,
+                                            ),
+                                          ),
+                                          child: TextButton(
+                                            onPressed: () {
+                                              Get.toNamed('/register');
+                                            },
+                                            child: Text(
+                                              "Register".toUpperCase(),
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w600,
+                                                color: kPrimaryColor,
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                )
-                              : const SizedBox(),
-                        ),
-                      ],
+                                    ],
+                                  )
+                                : const SizedBox(),
+                          ),
+                        ],
+                      ),
                     );
                   },
                 ),
               ),
               Expanded(
+                flex: 1,
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(30, 0, 30, 30),
                   child: Column(

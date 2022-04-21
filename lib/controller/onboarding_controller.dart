@@ -17,18 +17,18 @@ class onBoardingController extends GetxController {
 
   List<onBoardingContent> onboardingPages = [
     onBoardingContent(
-      'assets/images/undraw_career_progress.png',
+      'assets/images/undraw_career_progress.svg',
       'Membantu Anda\nMencari Pekerjaan Impian',
       'Kembangkan diri dan tingkatkan karir anda,\n hingga mencapai pekerjaan impian anda',
     ),
     onBoardingContent(
-      'assets/images/undraw_job_offers.png',
+      'assets/images/undraw_job_hunt.svg',
       'Pilih Pekerjaan\nSesuai Skill & Passion',
-      'Ada banyak pilihan pekerjaan yang bisa\nanda sesuaikan dengan minat dan skill yang anda miliki',
+      'Ada banyak pilihan pekerjaan yang bisa\nanda sesuaikan dengan\n minat dan skill yang anda miliki',
     ),
     onBoardingContent(
-      'assets/images/undraw_interview.png',
-      'Gabung dan Mulai Sekarang',
+      'assets/images/undraw_interview.svg',
+      'Gabung dan\nMulai Sekarang',
       'Raih pekerjaan impian anda sekarang\ndan tingkatkan karir juga penghasilan anda!',
     ),
   ];
