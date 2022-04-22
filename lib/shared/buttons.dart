@@ -29,7 +29,7 @@ class Buttons extends StatelessWidget {
         ),
         style: TextButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(20),
           ),
           backgroundColor: kPrimaryColor,
         ),

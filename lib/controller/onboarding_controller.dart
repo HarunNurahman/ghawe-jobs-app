@@ -24,7 +24,7 @@ class onBoardingController extends GetxController {
     onBoardingContent(
       'assets/images/undraw_job_hunt.svg',
       'Pilih Pekerjaan\nSesuai Skill & Passion',
-      'Ada banyak pilihan pekerjaan yang bisa\nanda sesuaikan dengan\n minat dan skill yang anda miliki',
+      'Ada banyak pilihan pekerjaan yang bisa\npilih dengan minat dan skill yang anda miliki',
     ),
     onBoardingContent(
       'assets/images/undraw_interview.svg',

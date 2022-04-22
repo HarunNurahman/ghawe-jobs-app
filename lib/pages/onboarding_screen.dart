@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ghawejobapp/controller/onboarding_controller.dart';
-import 'package:ghawejobapp/shared/buttons.dart';
 import 'package:ghawejobapp/shared/constant.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
@@ -16,9 +15,10 @@ class onBoardingScreen extends StatelessWidget {
       body: Center(
         child: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
-                flex: 3,
+                flex: 5,
                 child: PageView.builder(
                   controller: _controller.pageControl,
                   onPageChanged: _controller.selectedBoard,
@@ -31,7 +31,7 @@ class onBoardingScreen extends StatelessWidget {
                         children: [
                           SvgPicture.asset(
                             _controller.onboardingPages[index].imageAsset,
-                            width: MediaQuery.of(context).size.width * 0.67,
+                            width: 280,
                           ),
                           const SizedBox(height: 50),
                           Text(
@@ -68,7 +68,7 @@ class onBoardingScreen extends StatelessWidget {
                                               Get.toNamed('/login');
                                             },
                                             child: Text(
-                                              "Login".toUpperCase(),
+                                              "Masuk".toUpperCase(),
                                               style: GoogleFonts.poppins(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w600,
@@ -100,7 +100,7 @@ class onBoardingScreen extends StatelessWidget {
                                               Get.toNamed('/register');
                                             },
                                             child: Text(
-                                              "Register".toUpperCase(),
+                                              "Daftar".toUpperCase(),
                                               style: GoogleFonts.poppins(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w600,
