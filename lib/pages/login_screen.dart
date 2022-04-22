@@ -37,9 +37,11 @@ class _LoginScreenState extends State<LoginScreen> {
         elevation: 0,
         iconTheme: const IconThemeData(color: kPrimaryColor),
         title: Text(
-          'Login'.toUpperCase(),
+          'Masuk'.toUpperCase(),
           style: GoogleFonts.poppins(
-              color: Colors.black, fontWeight: FontWeight.bold),
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -56,7 +58,9 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Buttons(
                 btnText: "Masuk",
                 btnFont: 16,
-                press: () {},
+                press: () {
+                  Get.toNamed('/home');
+                },
               ),
             ),
             const SizedBox(height: 12),
@@ -96,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.all(6),
               child: GestureDetector(
                 onTap: () {
-                  Get.toNamed('/register');
+                  Get.toNamed('/home');
                 },
                 child: SvgPicture.asset('assets/images/img_google.svg'),
               ),
@@ -125,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.all(6),
               child: GestureDetector(
                 onTap: () {
-                  Get.toNamed('/register');
+                  Get.toNamed('/home');
                 },
                 child: SvgPicture.asset('assets/images/img_facebook.svg'),
               ),
@@ -152,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
             padding: const EdgeInsets.all(6),
             child: GestureDetector(
               onTap: () {
-                Get.toNamed('/register');
+                Get.toNamed('/home');
               },
               child: SvgPicture.asset('assets/images/img_linkedin.svg'),
             ),
