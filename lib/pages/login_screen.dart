@@ -1,12 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:html';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:ghawejobapp/main.dart';
-import 'package:ghawejobapp/pages/home_screen.dart';
-import 'package:ghawejobapp/pages/register_screen.dart';
-import 'package:ghawejobapp/shared/themes.dart';
-import 'package:ghawejobapp/shared/variables.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:ghawejobapp/shared/buttons.dart';
+import 'package:ghawejobapp/shared/constant.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -15,196 +15,295 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-String? errorMessage;
-final FirebaseAuth _auth = FirebaseAuth.instance;
-final _formKey = GlobalKey<FormState>();
-
-loginSubmit(BuildContext context) async {
-  if (_formKey.currentState!.validate()) {
-    try {
-      _auth
-          .signInWithEmailAndPassword(
-              email: emailController.text, password: passController.text)
-          .then((value) => {
-                Fluttertoast.showToast(msg: 'Login Succesful'),
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => HomeScreen()))
-              });
-    } on FirebaseAuthException catch (e) {
-      switch (e.code) {
-        case "invalid-email":
-          errorMessage = "Your email is wrong or doesnt exist";
-          break;
-        case "wrong-password":
-          errorMessage = "Your password is wrong.";
-          break;
-        default:
-          errorMessage = "User not found";
-      }
-      Fluttertoast.showToast(msg: errorMessage!);
-      print(e.code);
-    }
-  }
-}
-
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  bool _obsecureText = true;
+
+  void _togglePass() {
+    setState(() {
+      _obsecureText = !_obsecureText;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              Expanded(
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      header(),
-                      const SizedBox(height: 24),
-                      txtEmail(),
-                      const SizedBox(height: 10),
-                      txtPass(),
-                      const SizedBox(height: 8),
-                      txtForgotPass(),
-                      const SizedBox(height: 16),
-                      btnLogin(context),
-                      const SizedBox(height: 20),
-                      LoginSeparator(),
-                      const SizedBox(height: 20),
-                      btnLoginMethod(context),
-                    ],
-                  ),
-                ),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: kPrimaryColor),
+        title: Text(
+          'Login'.toUpperCase(),
+          style: GoogleFonts.poppins(
+              color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 30),
+            Header(context),
+            const SizedBox(height: 30),
+            TextField(),
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Buttons(
+                btnText: "Masuk",
+                btnFont: 16,
+                press: () {},
               ),
-              txtRegister(context),
-              const SizedBox(height: 10),
-            ],
-          ),
+            ),
+            const SizedBox(height: 12),
+            separator(),
+            const SizedBox(height: 16),
+            loginMethod(),
+            const SizedBox(height: 30)
+          ],
         ),
       ),
     );
   }
-}
 
-RichText txtRegister(BuildContext context) {
-  return RichText(
-    text: TextSpan(
-      style: TextStyle(
-          fontSize: 14, fontWeight: FontWeight.w300, color: Colors.black),
-      children: <TextSpan>[
-        TextSpan(text: 'Dont Have an Account? '),
-        TextSpan(
-          text: 'Register Here',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.green,
-              decoration: TextDecoration.underline),
-          recognizer: TapGestureRecognizer()
-            ..onTap = () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => RegisterScreen(),
+  Row loginMethod() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(right: 16.0),
+          child: Container(
+            height: 36,
+            width: 36,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Colors.white,
+              border: Border.all(color: Colors.black, width: 0.5),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.25),
+                  blurRadius: 3,
+                  spreadRadius: 1,
+                  offset: const Offset(0, 3),
                 ),
-              );
-            },
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(6),
+              child: GestureDetector(
+                onTap: () {
+                  Get.toNamed('/register');
+                },
+                child: SvgPicture.asset('assets/images/img_google.svg'),
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(right: 16.0),
+          child: Container(
+            height: 36,
+            width: 36,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Colors.white,
+              border: Border.all(color: Colors.black, width: 0.5),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.25),
+                  blurRadius: 3,
+                  spreadRadius: 1,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(6),
+              child: GestureDetector(
+                onTap: () {
+                  Get.toNamed('/register');
+                },
+                child: SvgPicture.asset('assets/images/img_facebook.svg'),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          height: 36,
+          width: 36,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            color: Colors.white,
+            border: Border.all(color: Colors.black, width: 0.5),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.25),
+                blurRadius: 3,
+                spreadRadius: 1,
+                offset: const Offset(0, 3),
+              ),
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(6),
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed('/register');
+              },
+              child: SvgPicture.asset('assets/images/img_linkedin.svg'),
+            ),
+          ),
         ),
       ],
-    ),
-  );
-}
+    );
+  }
 
-GestureDetector btnLogin(BuildContext context) {
-  return GestureDetector(
-    child: Container(
-      height: 40,
-      margin: const EdgeInsets.symmetric(horizontal: 30),
-      width: double.infinity,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: secondaryColor,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text(
-        'Login',
-        style: btnStyle,
-        textAlign: TextAlign.center,
-      ),
-    ),
-    onTap: () {
-      loginSubmit(context);
-    },
-  );
-}
+  Row separator() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Expanded(
+          child: Container(
+            margin: const EdgeInsets.only(left: 30, right: 10),
+            child: const Divider(thickness: 1),
+          ),
+        ),
+        Text(
+          'atau masuk dengan',
+          style: GoogleFonts.poppins(
+            fontSize: 14,
+            fontWeight: FontWeight.w300,
+          ),
+        ),
+        Expanded(
+          child: Container(
+            margin: const EdgeInsets.only(left: 10, right: 30),
+            child: const Divider(thickness: 1),
+          ),
+        ),
+      ],
+    );
+  }
 
-Row btnLoginMethod(BuildContext context) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-      GestureDetector(
-        child: Image.asset('assets/icon/ic_login_google.png',
-            width: 36, height: 36),
-        onTap: () {
-          Route route =
-              MaterialPageRoute(builder: (context) => const HomeScreen());
-          Navigator.push(context, route);
-        },
+  Center Header(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SvgPicture.asset(
+            'assets/images/undraw_welcome.svg',
+            width: MediaQuery.of(context).size.width * 0.6,
+          ),
+          const SizedBox(height: 20),
+          Text(
+            'Hai, Selamat Datang!',
+            style: GoogleFonts.poppins(
+              fontSize: 20,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            'Senang Bisa Bertemu Dengan Anda',
+            style: GoogleFonts.poppins(
+              fontSize: 14,
+              fontWeight: FontWeight.w300,
+            ),
+          )
+        ],
       ),
-      const SizedBox(width: 16),
-      GestureDetector(
-        child: Image.asset('assets/icon/ic_login_linkedin.png',
-            width: 36, height: 36),
-        onTap: () {
-          Route route =
-              MaterialPageRoute(builder: (context) => const HomeScreen());
-          Navigator.push(context, route);
-        },
-      ),
-    ],
-  );
-}
+    );
+  }
 
-Container LoginSeparator() {
-  return Container(
-    margin: EdgeInsets.symmetric(horizontal: 30),
-    child: Image.asset('assets/icon/ic_separator-grey.png'),
-  );
-}
-
-RichText txtForgotPass() {
-  return RichText(
-    text: TextSpan(
-      text: 'Forgot Password?',
-      style: const TextStyle(
-        fontSize: 14,
-        color: Colors.grey,
-        fontWeight: FontWeight.w200,
-        decoration: TextDecoration.underline,
+  Widget TextField() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Email',
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 8),
+          TextFormField(
+            validator: (value) =>
+                value!.isEmpty ? 'Email tidak boleh kosong' : null,
+            controller: _emailController,
+            enableSuggestions: false,
+            autocorrect: false,
+            keyboardType: TextInputType.emailAddress,
+            decoration: InputDecoration(
+              border: const UnderlineInputBorder(),
+              hintText: 'Masukkan Email Anda',
+              hintStyle: GoogleFonts.poppins(
+                fontWeight: FontWeight.w200,
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            'Password',
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 8),
+          TextFormField(
+            validator: (value) =>
+                value!.isEmpty ? 'Password tidak boleh kosong' : null,
+            controller: _passwordController,
+            obscureText: _obsecureText,
+            autocorrect: false,
+            enableSuggestions: false,
+            decoration: InputDecoration(
+              suffix: InkWell(
+                onTap: _togglePass,
+                child: Icon(
+                  _obsecureText ? Icons.visibility_off : Icons.visibility,
+                  color: kPrimaryColor,
+                ),
+              ),
+              border: const UnderlineInputBorder(),
+              hintText: 'Masukkan Password Anda',
+              hintStyle: GoogleFonts.poppins(
+                fontWeight: FontWeight.w200,
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Lupa Password? ',
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w300,
+                        decoration: TextDecoration.underline,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Get.toNamed('/register');
+                        },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
-      recognizer: TapGestureRecognizer()
-        ..onTap = () {
-          print('Forgot Password');
-        },
-    ),
-  );
-}
-
-Column header() {
-  return Column(
-    children: [
-      Image.asset(
-        'assets/images/img_logo_green.png',
-        width: 230,
-      ),
-      const SizedBox(height: 50),
-      Text(
-        'Login to Ghawe',
-        style: titleStyle.copyWith(fontSize: 24, fontWeight: FontWeight.w300),
-      ),
-    ],
-  );
+    );
+  }
 }
