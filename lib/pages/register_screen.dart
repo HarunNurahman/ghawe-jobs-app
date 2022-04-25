@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:ghawejobapp/shared/buttons.dart';
 import 'package:ghawejobapp/shared/constant.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -48,8 +49,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 30),
-              Header(context),
+              // const SizedBox(height: 30),
+              // Header(context),
               const SizedBox(height: 30),
               TextField(),
               const SizedBox(height: 12),
@@ -63,7 +64,89 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     child: Container(
                       height: 36,
                       width: 36,
-                      decoration: BoxDecoration(),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.white,
+                        border: Border.all(color: Colors.black, width: 0.5),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.25),
+                            blurRadius: 3,
+                            spreadRadius: 1,
+                            offset: const Offset(0, 3),
+                          )
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(6),
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.toNamed('/home');
+                          },
+                          child:
+                              SvgPicture.asset('assets/images/img_google.svg'),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 16),
+                    child: Container(
+                      height: 36,
+                      width: 36,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.white,
+                        border: Border.all(color: Colors.black, width: 0.5),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.25),
+                            blurRadius: 3,
+                            spreadRadius: 1,
+                            offset: const Offset(0, 3),
+                          )
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(6),
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.toNamed('/home');
+                          },
+                          child: SvgPicture.asset(
+                              'assets/images/img_facebook.svg'),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 0),
+                    child: Container(
+                      height: 36,
+                      width: 36,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.white,
+                        border: Border.all(color: Colors.black, width: 0.5),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.25),
+                            blurRadius: 3,
+                            spreadRadius: 1,
+                            offset: const Offset(0, 3),
+                          )
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(6),
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.toNamed('/home');
+                          },
+                          child: SvgPicture.asset(
+                              'assets/images/img_linkedin.svg'),
+                        ),
+                      ),
                     ),
                   ),
                 ],
