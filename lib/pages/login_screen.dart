@@ -53,20 +53,13 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 30),
             TextField(),
             const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Buttons(
-                btnText: "Masuk",
-                btnFont: 16,
-                press: () {
-                  Get.toNamed('/home');
-                },
-              ),
-            ),
+            ForgotPassword(),
+            const SizedBox(height: 10),
+            LoginButton(),
             const SizedBox(height: 12),
             separator(),
             const SizedBox(height: 16),
-            loginMethod(),
+            LoginMethod(),
             const SizedBox(height: 30)
           ],
         ),
@@ -74,7 +67,48 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Row loginMethod() {
+  Padding ForgotPassword() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Lupa Password? ',
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w300,
+                    decoration: TextDecoration.underline,
+                  ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      Get.toNamed('/register');
+                    },
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Padding LoginButton() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Buttons(
+        btnText: "Masuk",
+        btnFont: 16,
+        press: () {
+          Get.toNamed('/login');
+        },
+      ),
+    );
+  }
+
+  Row LoginMethod() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -282,29 +316,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontWeight: FontWeight.w200,
               ),
             ),
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              RichText(
-                text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: 'Lupa Password? ',
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w300,
-                        decoration: TextDecoration.underline,
-                      ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          Get.toNamed('/register');
-                        },
-                    ),
-                  ],
-                ),
-              ),
-            ],
           ),
         ],
       ),
