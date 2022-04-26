@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,10 +14,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
   bool _obsecureText = true;
 
   void _togglePass() {
@@ -85,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
-                      Get.toNamed('/register');
+                      Get.toNamed('/forgotpass');
                     },
                 ),
               ],
@@ -100,10 +96,9 @@ class _LoginScreenState extends State<LoginScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Buttons(
-        btnText: "Masuk",
-        btnFont: 16,
+        btnText: 'Masuk',
         press: () {
-          Get.toNamed('/login');
+          Get.toNamed('/home');
         },
       ),
     );
