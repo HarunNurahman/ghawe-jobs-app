@@ -40,15 +40,19 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             const SizedBox(height: 50),
             textField(),
             const SizedBox(height: 30),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Buttons(
-                btnText: 'Reset Password',
-                press: () {},
-              ),
-            ),
+            resetButton(),
           ],
         ),
+      ),
+    );
+  }
+
+  Padding resetButton() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Buttons(
+        btnText: 'Reset Password',
+        press: () {},
       ),
     );
   }
