@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:ghawejobapp/shared/config.dart';
+import 'package:ghawejobapp/shared/search_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final String titletext = '';
+
   String greeting() {
     var hour = DateTime.now().hour;
     if (hour < 12) {
@@ -26,33 +31,72 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Header(),
-              const SizedBox(height: 30),
-              GreetingText(),
-              const SizedBox(height: 5),
-              TextFormField(
-                enableSuggestions: false,
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.search),
-                  hintText: 'Cari pekerjaan atau perusahaan',
-                  hintStyle: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w200,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Header(),
+                const SizedBox(height: 30),
+                GreetingText(),
+                const SizedBox(height: 8),
+                const SearchBar(text: 'Cari Pekerjaan'),
+                const SizedBox(height: 30),
+                TitleHeader(titletext: 'Acara Mendatang'),
+                const SizedBox(height: 8),
+                EventBox(),
+                const SizedBox(height: 30),
+                TitleHeader(titletext: 'Berdasarkan Minat Anda'),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),
+    );
+  }
+
+  SingleChildScrollView EventBox() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: [
+          Image.asset('assets/images/img_event.png', height: 140),
+          const SizedBox(width: 8),
+          Image.asset('assets/images/img_event.png', height: 140),
+        ],
+      ),
+    );
+  }
+
+  Row TitleHeader({String? titletext}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Text(
+          titletext!,
+          style: GoogleFonts.poppins(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        const Spacer(),
+        Text(
+          'Lihat Semua',
+          style: GoogleFonts.poppins(
+            fontSize: 12,
+            fontWeight: FontWeight.w300,
+            color: kPrimaryColor,
+          ),
+        ),
+      ],
     );
   }
 
