@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ghawejobapp/controller/onboarding_controller.dart';
-import 'package:ghawejobapp/shared/constant.dart';
+import 'package:ghawejobapp/shared/config.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 

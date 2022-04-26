@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ghawejobapp/models/onboarding_content.dart';
-import 'package:ghawejobapp/shared/constant.dart';
+import 'package:ghawejobapp/shared/config.dart';
 
 class onBoardingController extends GetxController {
   var selectedBoard = 0.obs;

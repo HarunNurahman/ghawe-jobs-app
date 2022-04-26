@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ghawejobapp/shared/buttons.dart';
-import 'package:ghawejobapp/shared/constant.dart';
+import 'package:ghawejobapp/shared/config.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,6 +16,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -272,8 +273,15 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           const SizedBox(height: 8),
           TextFormField(
-            validator: (value) =>
-                value!.isEmpty ? 'Email tidak boleh kosong' : null,
+            validator: (value) {
+              bool _isValid = RegExp(
+                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                  .hasMatch(value!);
+              if (!_isValid) {
+                return 'Email tidak valid';
+              }
+              return null;
+            },
             controller: _emailController,
             enableSuggestions: false,
             autocorrect: false,
