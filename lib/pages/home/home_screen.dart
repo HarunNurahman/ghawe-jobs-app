@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ghawejobapp/pages/homescreen/home_controller.dart';
 import 'package:ghawejobapp/shared/config.dart';
 import 'package:ghawejobapp/shared/search_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({
-    Key? key,
-  }) : super(key: key);
+// class HomeScreen extends StatefulWidget {
+//   const HomeScreen({
+//     Key? key,
+//   }) : super(key: key);
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
+//   @override
+//   State<HomeScreen> createState() => _HomeScreenState();
+// }
 
-class _HomeScreenState extends State<HomeScreen> {
+// class _HomeScreenState extends State<HomeScreen> {
+class HomeScreen extends GetView<HomeController> {
   final String titletext = '';
+
+  const HomeScreen({Key? key}) : super(key: key);
 
   String greeting() {
     var hour = DateTime.now().hour;
