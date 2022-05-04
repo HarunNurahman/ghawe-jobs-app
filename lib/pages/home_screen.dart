@@ -51,9 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 TitleHeader(titletext: 'Berdasarkan Minat Anda'),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  child: Row(
-                    
-                  ),
+                  child: Row(),
                 )
               ],
             ),
