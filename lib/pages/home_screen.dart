@@ -57,6 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
+                      // Main Box
                       Container(
                         width: MediaQuery.of(context).size.width * 0.6,
                         height: MediaQuery.of(context).size.height * 0.2,
@@ -64,50 +65,91 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: kPrimaryColor,
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        // Company Logo Box
+                        child: Column(
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 15,
-                                top: 15,
-                              ),
-                              child: Container(
-                                width: 46,
-                                height: 46,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(6),
-                                  child: SvgPicture.asset(
-                                    'assets/images/img_google.svg',
-                                    height: 16,
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 15,
+                                    top: 15,
+                                  ),
+                                  // Background Box
+                                  child: Container(
+                                    width: 46,
+                                    height: 46,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    // Logo
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(6),
+                                      child: SvgPicture.asset(
+                                        'assets/images/img_google.svg',
+                                        height: 16,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
+                                const SizedBox(width: 10),
+                                // Job Desk & Company
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 18),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Back-End Developer',
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      const SizedBox(height: 3),
+                                      Text(
+                                        'Google Inc.',
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 10,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
-                            const SizedBox(width: 10),
+                            const SizedBox(height: 10),
+                            // Job Location
                             Padding(
-                              padding: const EdgeInsets.only(top: 18),
-                              child: Column(
+                              padding: const EdgeInsets.only(left: 15),
+                              child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  const Icon(
+                                    Icons.location_on,
+                                    color: Colors.white,
+                                    size: 16,
+                                  ),
+                                  const SizedBox(width: 10),
                                   Text(
-                                    'Back-End Developer',
+                                    'Jakarta, Indonesia',
                                     style: GoogleFonts.poppins(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.white,
                                     ),
-                                  ),
+                                  )
                                 ],
                               ),
-                            )
+                            ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -117,7 +159,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      
     );
   }
 
