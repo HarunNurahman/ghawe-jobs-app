@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ghawejobapp/pages/explore_screen.dart';
 import 'package:ghawejobapp/pages/home_screen.dart';
+import 'package:ghawejobapp/pages/myapplicants_screen.dart';
+import 'package:ghawejobapp/pages/profile_screen.dart';
 import 'package:ghawejobapp/pages/savedjobs_screen.dart';
 import 'package:ghawejobapp/shared/config.dart';
 
@@ -17,6 +19,9 @@ class _DashboardState extends State<Dashboard> {
     HomeScreen(),
     SavedJobsScreen(),
     ExploreScreen(),
+    MyApplicantScreen(),
+    ProfileScreen()
+
   ];
 
   late PageController _pageController;
