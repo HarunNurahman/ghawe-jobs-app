@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Buttons(
         btnText: 'Masuk',
         press: () {
-          Get.toNamed('/home');
+          Get.toNamed('/dashboard');
         },
       ),
     );

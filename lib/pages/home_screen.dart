@@ -16,7 +16,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final String titletext = '';
-  int _currentIndex = 0;
 
   String greeting() {
     var hour = DateTime.now().hour;
@@ -61,34 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        unselectedItemColor: Color(0xFFC4C4C4),
-        selectedItemColor: kPrimaryColor,
-        iconSize: 24,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        items: [
-          _bottomNavigationBarItems(icon: Icons.home, label: ''),
-          _bottomNavigationBarItems(icon: Icons.star, label: ''),
-          _bottomNavigationBarItems(icon: Icons.explore, label: ''),
-          _bottomNavigationBarItems(icon: Icons.file_copy, label: ''),
-          _bottomNavigationBarItems(icon: Icons.person, label: ''),
-        ],
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-      ),
-    );
-  }
-
-  _bottomNavigationBarItems({required IconData icon, required String label}) {
-    return BottomNavigationBarItem(
-      icon: Icon(icon),
-      label: label,
+      
     );
   }
 
