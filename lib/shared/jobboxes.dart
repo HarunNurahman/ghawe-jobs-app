@@ -2,18 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ghawejobapp/shared/config.dart';
+import 'package:ghawejobapp/shared/requireboxes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class JobBoxes extends StatelessWidget {
   const JobBoxes({
     Key? key,
+    required this.logoComp,
+    required this.jobDesk,
+    required this.company,
+    required this.location,
+    required this.applicant,
   }) : super(key: key);
+
+  final String logoComp;
+  final String jobDesk;
+  final String company;
+  final String location;
+  final String applicant;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
-      height: MediaQuery.of(context).size.height * 0.25,
+      height: 165,
       decoration: BoxDecoration(
         color: kPrimaryColor,
         borderRadius: BorderRadius.circular(15),
@@ -41,7 +53,7 @@ class JobBoxes extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(6),
                     child: SvgPicture.asset(
-                      'assets/images/img_google.svg',
+                      logoComp,
                       height: 16,
                     ),
                   ),
@@ -55,7 +67,7 @@ class JobBoxes extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Back-End Developer',
+                      jobDesk,
                       style: GoogleFonts.poppins(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -64,7 +76,7 @@ class JobBoxes extends StatelessWidget {
                     ),
                     const SizedBox(height: 3),
                     Text(
-                      'Google Inc.',
+                      company,
                       style: GoogleFonts.poppins(
                         fontSize: 10,
                         color: Colors.white,
@@ -89,7 +101,7 @@ class JobBoxes extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 Text(
-                  'Jakarta, Indonesia',
+                  location,
                   style: GoogleFonts.poppins(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
@@ -103,45 +115,10 @@ class JobBoxes extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 15),
             child: Row(
-              children: [
+              children: const [
                 // Requirement
-                Container(
-                  width: 60,
-                  height: 20,
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Fulltime',
-                      style: GoogleFonts.poppins(
-                        fontSize: 10,
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Container(
-                  width: 60,
-                  height: 20,
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'On-Site',
-                      style: GoogleFonts.poppins(
-                        fontSize: 10,
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                )
+                requireBox(require: 'Full-Time'),
+                SizedBox(width: 8),
               ],
             ),
           ),
@@ -179,7 +156,7 @@ class JobBoxes extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 15),
                   child: Text(
-                    '1 - 10 Pelamar',
+                    applicant,
                     style: GoogleFonts.poppins(
                       fontSize: 10,
                       fontWeight: FontWeight.w300,

@@ -59,7 +59,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     children: [
                       // Main Box
-                      JobBoxes(),
+                      JobBoxes(
+                        logoComp: 'assets/images/img_google.svg',
+                        jobDesk: 'Product Manager',
+                        company: 'Google Inc.',
+                        location: 'Jakarta, Indonesia',
+                        applicant: '1 - 10 Pelamar',
+                      )
                     ],
                   ),
                 ),
