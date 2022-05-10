@@ -263,7 +263,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const Spacer(),
           IconButton(
-            icon: Icon(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            splashRadius: 0.1,
+            icon: const Icon(
               Icons.notifications,
               color: kPrimaryColor,
               size: 36,
