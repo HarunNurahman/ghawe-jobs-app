@@ -5,7 +5,7 @@ import 'package:ghawejobapp/shared/config.dart';
 import 'package:ghawejobapp/shared/requireboxes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RecommendedJobBoxes extends StatelessWidget {
+class RecommendedJobBoxes extends StatefulWidget {
   const RecommendedJobBoxes({
     Key? key,
     required this.logoComp,
@@ -21,6 +21,11 @@ class RecommendedJobBoxes extends StatelessWidget {
   final String location;
   final String applicant;
 
+  @override
+  State<RecommendedJobBoxes> createState() => _RecommendedJobBoxesState();
+}
+
+class _RecommendedJobBoxesState extends State<RecommendedJobBoxes> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -53,7 +58,7 @@ class RecommendedJobBoxes extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(6),
                     child: SvgPicture.asset(
-                      logoComp,
+                      widget.logoComp,
                       height: 16,
                     ),
                   ),
@@ -67,7 +72,7 @@ class RecommendedJobBoxes extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      jobDesk,
+                      widget.jobDesk,
                       style: GoogleFonts.poppins(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
@@ -76,7 +81,7 @@ class RecommendedJobBoxes extends StatelessWidget {
                     ),
                     const SizedBox(height: 3),
                     Text(
-                      company,
+                      widget.company,
                       style: GoogleFonts.poppins(
                         fontSize: 10,
                         color: Colors.white,
@@ -101,7 +106,7 @@ class RecommendedJobBoxes extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 Text(
-                  location,
+                  widget.location,
                   style: GoogleFonts.poppins(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
@@ -157,7 +162,7 @@ class RecommendedJobBoxes extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 15),
                   child: Text(
-                    applicant,
+                    widget.applicant,
                     style: GoogleFonts.poppins(
                       fontSize: 10,
                       fontWeight: FontWeight.w300,

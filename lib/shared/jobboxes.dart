@@ -3,6 +3,19 @@ import 'package:ghawejobapp/shared/config.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class JobBoxes extends StatefulWidget {
+  const JobBoxes({
+    Key? key,
+    required this.logoComp,
+    required this.jobDesk,
+    required this.company,
+    required this.location,
+  }) : super(key: key);
+
+  final String logoComp;
+  final String jobDesk;
+  final String company;
+  final String location;
+
   @override
   State<JobBoxes> createState() => _JobBoxesState();
 }
@@ -33,7 +46,7 @@ class _JobBoxesState extends State<JobBoxes> {
               child: Padding(
                 padding: EdgeInsets.all(6),
                 child: Image.asset(
-                  'assets/images/img_gojek.png',
+                  widget.logoComp,
                 ),
               ),
             ),
@@ -47,14 +60,14 @@ class _JobBoxesState extends State<JobBoxes> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Social Media Marketing',
+                      widget.jobDesk,
                       style: GoogleFonts.poppins(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text(
-                      'Gojek',
+                      widget.company,
                       style: GoogleFonts.poppins(
                         fontSize: 10,
                       ),
@@ -68,7 +81,7 @@ class _JobBoxesState extends State<JobBoxes> {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          'Jakarta, Indonesia',
+                          widget.location,
                           style: GoogleFonts.poppins(
                             fontSize: 10,
                             fontWeight: FontWeight.w500,

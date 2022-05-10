@@ -63,9 +63,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: [
-                      JobBoxes(),
+                    children: const [
+                      JobBoxes(
+                        logoComp: 'assets/images/img_gojek.png',
+                        jobDesk: 'Social Media Manager',
+                        company: 'GoJek',
+                        location: 'Bandung, Indonesia',
+                      ),
+                      SizedBox(width: 8),
+                      JobBoxes(
+                        logoComp: 'assets/images/img_tokped.png',
+                        jobDesk: 'Tokopedia Internship',
+                        company: 'Tokopedia',
+                        location: 'Bandung, Indonesia',
+                      )
                     ],
+                    
                   ),
                 ),
                 const SizedBox(height: 30),
