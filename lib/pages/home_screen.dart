@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import 'package:ghawejobapp/shared/config.dart';
-import 'package:ghawejobapp/shared/jobboxes.dart';
+import 'package:ghawejobapp/shared/recommendedjobboxes.dart';
 import 'package:ghawejobapp/shared/search_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,6 +18,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final String titletext = '';
+  bool isSaved = false;
 
   String greeting() {
     var hour = DateTime.now().hour;
@@ -133,12 +134,24 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                             ),
                             const Spacer(),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 16),
-                              child: Icon(
-                                Icons.bookmark_border,
-                                color: kPrimaryColor,
-                              ),
+                            IconButton(
+                              splashRadius: 0.1,
+                              splashColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onPressed: () {
+                                setState(() {
+                                  isSaved = !isSaved;
+                                });
+                              },
+                              icon: isSaved
+                                  ? const Icon(
+                                      Icons.bookmark,
+                                      color: kPrimaryColor,
+                                    )
+                                  : const Icon(
+                                      Icons.bookmark_border,
+                                      color: kPrimaryColor,
+                                    ),
                             ),
                           ],
                         ),
@@ -161,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Row(
         children: const [
           // Main Box
-          JobBoxes(
+          RecommendedJobBoxes(
             logoComp: 'assets/images/img_google.svg',
             jobDesk: 'Product Manager',
             company: 'Google Inc.',
@@ -169,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
             applicant: '1 - 10 Pelamar',
           ),
           SizedBox(width: 20),
-          JobBoxes(
+          RecommendedJobBoxes(
             logoComp: 'assets/images/img_facebook.svg',
             jobDesk: 'Project Engineer',
             company: 'Facebook Inc.',

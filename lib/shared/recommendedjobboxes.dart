@@ -5,8 +5,8 @@ import 'package:ghawejobapp/shared/config.dart';
 import 'package:ghawejobapp/shared/requireboxes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class JobBoxes extends StatelessWidget {
-  const JobBoxes({
+class RecommendedJobBoxes extends StatelessWidget {
+  const RecommendedJobBoxes({
     Key? key,
     required this.logoComp,
     required this.jobDesk,
