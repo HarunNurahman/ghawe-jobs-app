@@ -54,26 +54,38 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 30),
                 TitleHeader(titletext: 'Berdasarkan Minat Anda'),
                 const SizedBox(height: 8),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      // Main Box
-                      JobBoxes(
-                        logoComp: 'assets/images/img_google.svg',
-                        jobDesk: 'Product Manager',
-                        company: 'Google Inc.',
-                        location: 'Jakarta, Indonesia',
-                        applicant: '1 - 10 Pelamar',
-                      )
-                    ],
-                  ),
-                ),
+                RecommendedJobs(),
                 const SizedBox(height: 30),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  SingleChildScrollView RecommendedJobs() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: const [
+          // Main Box
+          JobBoxes(
+            logoComp: 'assets/images/img_google.svg',
+            jobDesk: 'Product Manager',
+            company: 'Google Inc.',
+            location: 'Jakarta, Indonesia',
+            applicant: '1 - 10 Pelamar',
+          ),
+          SizedBox(width: 20),
+          JobBoxes(
+            logoComp: 'assets/images/img_facebook.svg',
+            jobDesk: 'Project Engineer',
+            company: 'Facebook Inc.',
+            location: 'Jakarta, Indonesia',
+            applicant: '1 - 100 Pelamar',
+          )
+        ],
       ),
     );
   }

@@ -119,6 +119,7 @@ class JobBoxes extends StatelessWidget {
                 // Requirement
                 requireBox(require: 'Full-Time'),
                 SizedBox(width: 8),
+                requireBox(require: 'On-Site'),
               ],
             ),
           ),
