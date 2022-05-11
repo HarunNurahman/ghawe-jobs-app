@@ -27,9 +27,9 @@ class SavedJobsScreen extends StatelessWidget {
         child: Center(
           child: JobBoxes(
             logoComp: 'assets/images/img_gojek.png',
-            jobDesk: 'A',
-            company: 'a',
-            location: 'a',
+            jobDesk: 'Back-End Developer',
+            company: 'GoJek',
+            location: 'Jakarta, Indonesia',
           ),
         ),
       ),
