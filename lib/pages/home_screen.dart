@@ -60,32 +60,35 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 30),
                 TitleHeader(titletext: 'Lowongan Terbaru'),
                 const SizedBox(height: 8),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: const [
-                      JobBoxes(
-                        logoComp: 'assets/images/img_gojek.png',
-                        jobDesk: 'Social Media Manager',
-                        company: 'GoJek',
-                        location: 'Bandung, Indonesia',
-                      ),
-                      SizedBox(width: 8),
-                      JobBoxes(
-                        logoComp: 'assets/images/img_tokped.png',
-                        jobDesk: 'Tokopedia Internship',
-                        company: 'Tokopedia',
-                        location: 'Bandung, Indonesia',
-                      )
-                    ],
-                    
-                  ),
-                ),
+                NewJobs(),
                 const SizedBox(height: 30),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  SingleChildScrollView NewJobs() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: const [
+          JobBoxes(
+            logoComp: 'assets/images/img_gojek.png',
+            jobDesk: 'Social Media Manager',
+            company: 'GoJek',
+            location: 'Bandung, Indonesia',
+          ),
+          SizedBox(width: 8),
+          JobBoxes(
+            logoComp: 'assets/images/img_tokped.png',
+            jobDesk: 'Tokopedia Internship',
+            company: 'Tokopedia',
+            location: 'Bandung, Indonesia',
+          )
+        ],
       ),
     );
   }
@@ -200,4 +203,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
