@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:ghawejobapp/pages/dashboard_screen.dart';
 import 'package:ghawejobapp/pages/forgotpass_screen.dart';
+import 'package:ghawejobapp/pages/jobdetail.dart';
 // import 'package:ghawejobapp/pages/home_screen.dart';
 import 'package:ghawejobapp/pages/login_screen.dart';
 import 'package:ghawejobapp/pages/onboarding_screen.dart';
@@ -13,5 +14,6 @@ class PageRoutes {
     GetPage(name: '/register', page: () => RegisterScreen()),
     GetPage(name: '/dashboard', page: () => Dashboard()),
     GetPage(name: '/forgotpass', page: () => ForgotPassword()),
+    GetPage(name: '/detail', page: () => JobDetailScreen()),
   ];
 }
