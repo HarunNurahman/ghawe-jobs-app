@@ -58,6 +58,104 @@ class _JobDetailScreenState extends State<JobDetailScreen> {
           ),
         ),
       ),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            children: [
+              header(context),
+              const SizedBox(height: 36),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Persyaratan',
+                      style: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFEEF2FC),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '• Lorem Ipseum',
+                              style: GoogleFonts.poppins(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            Text(
+                              '• Lorem Ipseum',
+                              style: GoogleFonts.poppins(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Center header(BuildContext context) {
+    return Center(
+      child: Column(
+        children: [
+          Image.asset(
+            'assets/images/img_tokped.png',
+            width: MediaQuery.of(context).size.width * 0.5,
+          ),
+          const SizedBox(height: 16),
+          Text(
+            'Full Stack Developer',
+            style: GoogleFonts.poppins(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            'Tokopedia',
+            style: GoogleFonts.poppins(fontSize: 14),
+          ),
+          const SizedBox(height: 16),
+          Row(
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'DKI Jakarta, Indonesia',
+                style: GoogleFonts.poppins(fontSize: 14),
+              ),
+              const SizedBox(width: 4),
+              const Icon(
+                Icons.location_on,
+                color: kPrimaryColor,
+                size: 16,
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }

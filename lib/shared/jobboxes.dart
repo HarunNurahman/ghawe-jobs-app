@@ -28,36 +28,35 @@ class _JobBoxesState extends State<JobBoxes> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.8,
-      height: 80,
       decoration: BoxDecoration(
         color: const Color(0xFFEEF2FC),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Container(
-              height: 48,
-              width: 48,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(6),
-                child: Image.asset(
-                  widget.logoComp,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Container(
+                height: 48,
+                width: 48,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(6),
+                  child: Image.asset(
+                    widget.logoComp,
+                  ),
                 ),
               ),
             ),
-          ),
-          const SizedBox(width: 16),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: Column(
+            const SizedBox(width: 16),
+            Column(
+              children: [
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -92,37 +91,37 @@ class _JobBoxesState extends State<JobBoxes> {
                     )
                   ],
                 ),
-              ),
-            ],
-          ),
-          const Spacer(),
-          IconButton(
-            splashRadius: 0.1,
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            onPressed: () {
-              setState(
-                () {
-                  isSaved = !isSaved;
-                  Fluttertoast.showToast(
-                    msg: 'Pekerjaan telah tersimpan',
-                    toastLength: Toast.LENGTH_SHORT,
-                    gravity: ToastGravity.CENTER,
-                  );
-                },
-              );
-            },
-            icon: isSaved
-                ? const Icon(
-                    Icons.bookmark,
-                    color: kPrimaryColor,
-                  )
-                : const Icon(
-                    Icons.bookmark_border,
-                    color: kPrimaryColor,
-                  ),
-          ),
-        ],
+              ],
+            ),
+            const Spacer(),
+            IconButton(
+              splashRadius: 0.1,
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onPressed: () {
+                setState(
+                  () {
+                    isSaved = !isSaved;
+                    Fluttertoast.showToast(
+                      msg: 'Pekerjaan telah tersimpan',
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                    );
+                  },
+                );
+              },
+              icon: isSaved
+                  ? const Icon(
+                      Icons.bookmark,
+                      color: kPrimaryColor,
+                    )
+                  : const Icon(
+                      Icons.bookmark_border,
+                      color: kPrimaryColor,
+                    ),
+            ),
+          ],
+        ),
       ),
     );
   }

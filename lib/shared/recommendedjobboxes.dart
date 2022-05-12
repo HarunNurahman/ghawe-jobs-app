@@ -30,24 +30,19 @@ class _RecommendedJobBoxesState extends State<RecommendedJobBoxes> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
-      height: 165,
       decoration: BoxDecoration(
         color: kPrimaryColor,
         borderRadius: BorderRadius.circular(15),
       ),
       // Company Logo Box
-      child: Column(
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 15,
-                  top: 15,
-                ),
-                // Background Box
-                child: Container(
+      child: Padding(
+        padding: const EdgeInsets.all(15),
+        child: Column(
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
                   width: 46,
                   height: 46,
                   decoration: BoxDecoration(
@@ -63,12 +58,9 @@ class _RecommendedJobBoxesState extends State<RecommendedJobBoxes> {
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(width: 10),
-              // Job Desk & Company
-              Padding(
-                padding: const EdgeInsets.only(top: 18),
-                child: Column(
+                const SizedBox(width: 10),
+                // Job Desk & Company
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -89,14 +81,11 @@ class _RecommendedJobBoxesState extends State<RecommendedJobBoxes> {
                     ),
                   ],
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          // Job Location
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Row(
+              ],
+            ),
+            const SizedBox(height: 10),
+            // Job Location
+            Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Icon(
@@ -115,11 +104,8 @@ class _RecommendedJobBoxesState extends State<RecommendedJobBoxes> {
                 )
               ],
             ),
-          ),
-          const SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Row(
+            const SizedBox(height: 10),
+            Row(
               children: const [
                 // Requirement
                 requireBox(require: 'Full-Time'),
@@ -127,11 +113,8 @@ class _RecommendedJobBoxesState extends State<RecommendedJobBoxes> {
                 requireBox(require: 'On-Site'),
               ],
             ),
-          ),
-          const SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Row(
+            const SizedBox(height: 10),
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 // Button
@@ -159,21 +142,18 @@ class _RecommendedJobBoxesState extends State<RecommendedJobBoxes> {
                   ),
                 ),
                 const Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(right: 15),
-                  child: Text(
-                    widget.applicant,
-                    style: GoogleFonts.poppins(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.white,
-                    ),
+                Text(
+                  widget.applicant,
+                  style: GoogleFonts.poppins(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.white,
                   ),
                 ),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
