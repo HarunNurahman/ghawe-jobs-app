@@ -300,7 +300,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ),
           const SizedBox(height: 24),
           // Button
-          Buttons(btnText: 'Daftar', press: () {}),
+          Buttons(
+              btnText: 'Daftar',
+              press: () {
+                Get.toNamed('/login');
+              }),
         ],
       ),
     );

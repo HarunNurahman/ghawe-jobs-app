@@ -29,7 +29,7 @@ class _JobBoxesState extends State<JobBoxes> {
       width: MediaQuery.of(context).size.width * 0.8,
       height: 80,
       decoration: BoxDecoration(
-        color: Color(0xFFEEF2FC),
+        color: const Color(0xFFEEF2FC),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
@@ -44,7 +44,7 @@ class _JobBoxesState extends State<JobBoxes> {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
-                padding: EdgeInsets.all(6),
+                padding: const EdgeInsets.all(6),
                 child: Image.asset(
                   widget.logoComp,
                 ),
@@ -102,6 +102,7 @@ class _JobBoxesState extends State<JobBoxes> {
             onPressed: () {
               setState(() {
                 isSaved = !isSaved;
+                
               });
             },
             icon: isSaved

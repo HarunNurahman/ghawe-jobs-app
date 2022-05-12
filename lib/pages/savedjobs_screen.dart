@@ -25,11 +25,23 @@ class SavedJobsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Center(
-          child: JobBoxes(
-            logoComp: 'assets/images/img_gojek.png',
-            jobDesk: 'Back-End Developer',
-            company: 'GoJek',
-            location: 'Jakarta, Indonesia',
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const <Widget>[
+              JobBoxes(
+                logoComp: 'assets/images/img_gojek.png',
+                jobDesk: 'Social Media Engineer',
+                company: 'GoJek',
+                location: 'Jakarta, Indonesia',
+              ),
+              SizedBox(height: 8),
+              JobBoxes(
+                logoComp: 'assets/images/img_tokped.png',
+                jobDesk: 'Full Stack Developer',
+                company: 'Tokopedia',
+                location: 'Bandung, Indonesia',
+              ),
+            ],
           ),
         ),
       ),
