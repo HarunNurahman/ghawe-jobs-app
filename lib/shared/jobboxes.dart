@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ghawejobapp/shared/config.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -100,10 +101,16 @@ class _JobBoxesState extends State<JobBoxes> {
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onPressed: () {
-              setState(() {
-                isSaved = !isSaved;
-                
-              });
+              setState(
+                () {
+                  isSaved = !isSaved;
+                  Fluttertoast.showToast(
+                    msg: 'Pekerjaan telah tersimpan',
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                  );
+                },
+              );
             },
             icon: isSaved
                 ? const Icon(
