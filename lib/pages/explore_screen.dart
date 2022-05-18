@@ -28,7 +28,7 @@ class ExploreScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const <Widget>[
-              SizedBox(height: 30),
+              SizedBox(height: 15),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30),
                 child: SearchBar(text: 'Cari Pekerjaan'),
