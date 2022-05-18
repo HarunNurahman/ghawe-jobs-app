@@ -33,48 +33,55 @@ class ProfileScreen extends StatelessWidget {
                   const SizedBox(height: 30),
                   myDesc(),
                   const SizedBox(height: 30),
+                  myExperience(),
+                  const SizedBox(height: 30),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Pengalaman Saya',
-                          style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        const Experience(
-                          logoComp: 'assets/images/img_tokped.png',
-                          jobDesk: 'Full Stack Developer',
-                          company: 'Tokopedia',
-                          experience: 'Jan 2020 - Jul 2022',
-                        ),
-                        const SizedBox(height: 8),
-                        const Experience(
-                          logoComp: 'assets/images/img_tokped.png',
-                          jobDesk: 'SEO Engineer',
-                          company: 'Tokopedia',
-                          experience: 'Jan - Jul 2018',
-                        ),
-                        const SizedBox(height: 8),
-                        const Experience(
-                          logoComp: 'assets/images/img_gojek.png',
-                          jobDesk: 'Internship Program',
-                          company: 'GoJek',
-                          experience: 'Jan - Apr 2015',
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 30),
+                  )
                 ],
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Padding myExperience() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Pengalaman Saya',
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(height: 8),
+          const Experience(
+            logoComp: 'assets/images/img_tokped.png',
+            jobDesk: 'Full Stack Developer',
+            company: 'Tokopedia',
+            experience: 'Jan 2020 - Jul 2022',
+          ),
+          const SizedBox(height: 8),
+          const Experience(
+            logoComp: 'assets/images/img_tokped.png',
+            jobDesk: 'SEO Engineer',
+            company: 'Tokopedia',
+            experience: 'Jan - Jul 2018',
+          ),
+          const SizedBox(height: 8),
+          const Experience(
+            logoComp: 'assets/images/img_gojek.png',
+            jobDesk: 'Internship Program',
+            company: 'GoJek',
+            experience: 'Jan - Apr 2015',
+          ),
+        ],
       ),
     );
   }
@@ -307,4 +314,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
