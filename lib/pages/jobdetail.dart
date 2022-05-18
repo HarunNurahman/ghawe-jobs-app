@@ -31,13 +31,34 @@ class _JobDetailScreenState extends State<JobDetailScreen> {
               requirementBox(),
               const SizedBox(height: 30),
               benefitBox(),
+              Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      margin:
+                          // const EdgeInsets.only(left: 30, right: 30, top: 30),
+                          const EdgeInsets.all(30),
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: const Text('Lamar Sekarang'),
+                        style: ElevatedButton.styleFrom(
+                          primary: kPrimaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-      ),
+      
     );
   }
 
