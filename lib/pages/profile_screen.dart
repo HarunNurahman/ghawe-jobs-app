@@ -16,78 +16,97 @@ class ProfileScreen extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  const Center(
-                    child: CircleAvatar(
-                      radius: 64,
-                      backgroundColor: kPrimaryColor,
-                      child: CircleAvatar(
-                        radius: 60,
-                        backgroundColor: Colors.white,
-                        child: CircleAvatar(
-                          radius: 56,
-                          backgroundImage:
-                              AssetImage('assets/images/img_avatar.jpg'),
-                        ),
-                      ),
-                    ),
-                  ),
+                  profilePic(),
                   const SizedBox(height: 16),
-                  Text(
-                    'Harun Nurahman',
-                    style: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
+                  fullName(),
                   const SizedBox(height: 4),
-                  Text(
-                    'Junior Mobile Developer',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
+                  skill(),
                   const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.location_on,
-                        color: kPrimaryColor,
-                        size: 8,
-                      ),
-                      const SizedBox(width: 6),
-                      Text(
-                        'Kota Bandung, Jawa Barat',
-                        style: GoogleFonts.poppins(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
+                  city(),
                   const SizedBox(height: 4),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.phone,
-                        color: kPrimaryColor,
-                        size: 8,
-                      ),
-                      const SizedBox(width: 6),
-                      Text(
-                        'xxxx-xxxx-xxxx',
-                        style: GoogleFonts.poppins(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  )
+                  contactInfo()
                 ],
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Row contactInfo() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Icon(
+          Icons.phone,
+          color: kPrimaryColor,
+          size: 8,
+        ),
+        const SizedBox(width: 6),
+        Text(
+          'xxxx-xxxx-xxxx',
+          style: GoogleFonts.poppins(
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row city() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Icon(
+          Icons.location_on,
+          color: kPrimaryColor,
+          size: 8,
+        ),
+        const SizedBox(width: 6),
+        Text(
+          'Kota Bandung, Jawa Barat',
+          style: GoogleFonts.poppins(
+            fontSize: 10,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Text skill() {
+    return Text(
+      'Junior Mobile Developer',
+      style: GoogleFonts.poppins(
+        fontSize: 14,
+        fontWeight: FontWeight.w300,
+      ),
+    );
+  }
+
+  Text fullName() {
+    return Text(
+      'Harun Nurahman',
+      style: GoogleFonts.poppins(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+      ),
+    );
+  }
+
+  Center profilePic() {
+    return const Center(
+      child: CircleAvatar(
+        radius: 64,
+        backgroundColor: kPrimaryColor,
+        child: CircleAvatar(
+          radius: 60,
+          backgroundColor: Colors.white,
+          child: CircleAvatar(
+            radius: 56,
+            backgroundImage: AssetImage('assets/images/img_avatar.jpg'),
           ),
         ),
       ),
