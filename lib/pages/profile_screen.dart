@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ghawejobapp/shared/config.dart';
+import 'package:ghawejobapp/shared/experience_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -45,46 +46,25 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 8),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image.asset(
-                              'assets/images/img_tokped.png',
-                              width: 48,
-                            ),
-                            const SizedBox(width: 10),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Full Stack Developer',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  'Tokopedia',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 10,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const Spacer(),
-                            Column(
-                              children: [
-                                Text(
-                                  'Jan 2020 - Jul 2022',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 10,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
+                        const Experience(
+                          logoComp: 'assets/images/img_tokped.png',
+                          jobDesk: 'Full Stack Developer',
+                          company: 'Tokopedia',
+                          experience: 'Jan 2020 - Jul 2022',
+                        ),
+                        const SizedBox(height: 8),
+                        const Experience(
+                          logoComp: 'assets/images/img_tokped.png',
+                          jobDesk: 'SEO Engineer',
+                          company: 'Tokopedia',
+                          experience: 'Jan - Jul 2018',
+                        ),
+                        const SizedBox(height: 8),
+                        const Experience(
+                          logoComp: 'assets/images/img_gojek.png',
+                          jobDesk: 'Internship Program',
+                          company: 'GoJek',
+                          experience: 'Jan - Apr 2015',
                         ),
                       ],
                     ),
@@ -327,3 +307,4 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
+
