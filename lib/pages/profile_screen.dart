@@ -37,42 +37,64 @@ class ProfileScreen extends StatelessWidget {
                   const SizedBox(height: 30),
                   myExperience(),
                   const SizedBox(height: 30),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Keahlian Saya',
-                          style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
-                            SkillBox(
-                              skillIcon: 'assets/images/img_flutter.svg',
-                              skillName: 'Flutter',
-                            ),
-                            SizedBox(width: 16),
-                            SkillBox(
-                              skillIcon: 'assets/images/img_figma.svg',
-                              skillName: 'Figma',
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
+                  MySkill(),
                   const SizedBox(height: 30),
                 ],
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Padding MySkill() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Keahlian Saya',
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(height: 8),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const [
+                SkillBox(
+                  skillIcon: 'assets/images/img_flutter.svg',
+                  skillName: 'Flutter',
+                ),
+                SizedBox(width: 16),
+                SkillBox(
+                  skillIcon: 'assets/images/img_figma.svg',
+                  skillName: 'Figma',
+                ),
+                SizedBox(width: 16),
+                SkillBox(
+                  skillIcon: 'assets/images/img_github.svg',
+                  skillName: 'Git',
+                ),
+                SizedBox(width: 16),
+                SkillBox(
+                  skillIcon: 'assets/images/img_laravel.svg',
+                  skillName: 'Laravel',
+                ),
+                SizedBox(width: 16),
+                SkillBox(
+                  skillIcon: 'assets/images/img_postman.svg',
+                  skillName: 'PostmanAPI',
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

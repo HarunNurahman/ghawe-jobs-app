@@ -15,7 +15,6 @@ class SkillBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           width: 56,
@@ -35,8 +34,7 @@ class SkillBox extends StatelessWidget {
           style: GoogleFonts.poppins(
             fontSize: 10,
           ),
-          textAlign: TextAlign.center,
-        )
+        ),
       ],
     );
   }
