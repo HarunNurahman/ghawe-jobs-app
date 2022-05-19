@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:ghawejobapp/shared/config.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,101 +27,104 @@ class _JobBoxesState extends State<JobBoxes> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.8,
-      decoration: BoxDecoration(
-        color: const Color(0xFFEEF2FC),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15),
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: Container(
-                height: 48,
-                width: 48,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(6),
-                  child: Image.asset(
-                    widget.logoComp,
+    return GestureDetector(
+      onTap: () => Get.toNamed('/detail'),
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        decoration: BoxDecoration(
+          color: const Color(0xFFEEF2FC),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 15),
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Container(
+                  height: 48,
+                  width: 48,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: Image.asset(
+                      widget.logoComp,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(width: 16),
-            Column(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      widget.jobDesk,
-                      style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Text(
-                      widget.company,
-                      style: GoogleFonts.poppins(
-                        fontSize: 10,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.location_on,
-                          color: kPrimaryColor,
-                          size: 12,
+              const SizedBox(width: 16),
+              Column(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        widget.jobDesk,
+                        style: GoogleFonts.poppins(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
                         ),
-                        const SizedBox(width: 4),
-                        Text(
-                          widget.location,
-                          style: GoogleFonts.poppins(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500,
+                      ),
+                      Text(
+                        widget.company,
+                        style: GoogleFonts.poppins(
+                          fontSize: 10,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.location_on,
+                            color: kPrimaryColor,
+                            size: 12,
                           ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ],
-            ),
-            const Spacer(),
-            IconButton(
-              splashRadius: 0.1,
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onPressed: () {
-                setState(
-                  () {
-                    isSaved = !isSaved;
-                    Fluttertoast.showToast(
-                      msg: 'Pekerjaan telah tersimpan',
-                      toastLength: Toast.LENGTH_SHORT,
-                      gravity: ToastGravity.CENTER,
-                    );
-                  },
-                );
-              },
-              icon: isSaved
-                  ? const Icon(
-                      Icons.bookmark,
-                      color: kPrimaryColor,
-                    )
-                  : const Icon(
-                      Icons.bookmark_border,
-                      color: kPrimaryColor,
-                    ),
-            ),
-          ],
+                          const SizedBox(width: 4),
+                          Text(
+                            widget.location,
+                            style: GoogleFonts.poppins(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
+              const Spacer(),
+              IconButton(
+                splashRadius: 0.1,
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onPressed: () {
+                  setState(
+                    () {
+                      isSaved = !isSaved;
+                      Fluttertoast.showToast(
+                        msg: 'Pekerjaan telah tersimpan',
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                      );
+                    },
+                  );
+                },
+                icon: isSaved
+                    ? const Icon(
+                        Icons.bookmark,
+                        color: kPrimaryColor,
+                      )
+                    : const Icon(
+                        Icons.bookmark_border,
+                        color: kPrimaryColor,
+                      ),
+              ),
+            ],
+          ),
         ),
       ),
     );
