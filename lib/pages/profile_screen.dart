@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ghawejobapp/shared/config.dart';
@@ -37,7 +38,52 @@ class ProfileScreen extends StatelessWidget {
                   const SizedBox(height: 30),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
-                  )
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Keahlian Saya',
+                          style: GoogleFonts.poppins(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: 56,
+                                  height: 56,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFEEF2FC),
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: SvgPicture.asset(
+                                        'assets/images/img_flutter.svg'),
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  'Flutter',
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 10,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                )
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 30),
                 ],
               ),
             ],
@@ -63,23 +109,23 @@ class ProfileScreen extends StatelessWidget {
           const SizedBox(height: 8),
           const Experience(
             logoComp: 'assets/images/img_tokped.png',
-            jobDesk: 'Full Stack Developer',
+            jobDesk: 'Full Stack Mobile Developer',
             company: 'Tokopedia',
-            experience: 'Jan 2020 - Jul 2022',
+            experience: '2022',
           ),
           const SizedBox(height: 8),
           const Experience(
             logoComp: 'assets/images/img_tokped.png',
-            jobDesk: 'SEO Engineer',
+            jobDesk: 'Mobile Developer',
             company: 'Tokopedia',
-            experience: 'Jan - Jul 2018',
+            experience: '2022',
           ),
           const SizedBox(height: 8),
           const Experience(
             logoComp: 'assets/images/img_gojek.png',
             jobDesk: 'Internship Program',
             company: 'GoJek',
-            experience: 'Jan - Apr 2015',
+            experience: '2022',
           ),
         ],
       ),
@@ -314,3 +360,54 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
+
+                  //   Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 30),
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       Text(
+                  //         'Keahlian Saya',
+                  //         style: GoogleFonts.poppins(
+                  //           fontSize: 16,
+                  //           fontWeight: FontWeight.w500,
+                  //         ),
+                  //       ),
+                  //       const SizedBox(height: 8),
+                  //       SingleChildScrollView(
+                  //         scrollDirection: Axis.horizontal,
+                  //         child: Row(
+                  //           mainAxisAlignment: MainAxisAlignment.start,
+                  //           children: [
+                  //             Column(
+                  //               crossAxisAlignment: CrossAxisAlignment.start,
+                  //               children: [
+                  //                 Container(
+                  //                   width: 56,
+                  //                   height: 56,
+                  //                   decoration: BoxDecoration(
+                  //                     color: const Color(0xFFEEF2FC),
+                  //                     borderRadius: BorderRadius.circular(5),
+                  //                   ),
+                  //                   child: Padding(
+                  //                     padding: const EdgeInsets.all(8.0),
+                  //                     child: SvgPicture.asset(
+                  //                         'assets/images/img_flutter.svg'),
+                  //                   ),
+                  //                 ),
+                  //                 const SizedBox(height: 8),
+                  //                 Text(
+                  //                   'Flutter',
+                  //                   style: GoogleFonts.poppins(
+                  //                     fontSize: 10,
+                  //                   ),
+                  //                   textAlign: TextAlign.center,
+                  //                 )
+                  //               ],
+                  //             )
+                  //           ],
+                  //         ),
+                  //       )
+                  //     ],
+                  //   ),
+                  // ),

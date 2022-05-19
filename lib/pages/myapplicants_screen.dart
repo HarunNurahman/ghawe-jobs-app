@@ -14,7 +14,7 @@ class MyApplicantScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Text(
-          'Pekerjaan Tersimpan'.toUpperCase(),
+          'Lamaran Saya'.toUpperCase(),
           style: GoogleFonts.poppins(
             color: Colors.black,
             fontWeight: FontWeight.bold,
