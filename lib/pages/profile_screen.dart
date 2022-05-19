@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ghawejobapp/shared/config.dart';
 import 'package:ghawejobapp/shared/experience_widget.dart';
+import 'package:ghawejobapp/shared/skillbox_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -51,33 +52,16 @@ class ProfileScreen extends StatelessWidget {
                         const SizedBox(height: 8),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: 56,
-                                  height: 56,
-                                  decoration: BoxDecoration(
-                                    color: const Color(0xFFEEF2FC),
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: SvgPicture.asset(
-                                        'assets/images/img_flutter.svg'),
-                                  ),
-                                ),
-                                const SizedBox(height: 8),
-                                Text(
-                                  'Flutter',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 10,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                )
-                              ],
-                            )
+                          children: const [
+                            SkillBox(
+                              skillIcon: 'assets/images/img_flutter.svg',
+                              skillName: 'Flutter',
+                            ),
+                            SizedBox(width: 16),
+                            SkillBox(
+                              skillIcon: 'assets/images/img_figma.svg',
+                              skillName: 'Figma',
+                            ),
                           ],
                         )
                       ],
@@ -360,6 +344,8 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
+
+
 
                   //   Padding(
                   //   padding: const EdgeInsets.symmetric(horizontal: 30),
