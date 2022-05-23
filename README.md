@@ -22,5 +22,5 @@ Jobs Seeker App UI/UX Design to Code Implementation with Flutter
 ![Home Screen](https://user-images.githubusercontent.com/16952129/169740959-f1fafefb-bc90-4058-8c81-5bef194a5b98.png)
 ![Saved Job Screen](https://user-images.githubusercontent.com/16952129/169740950-2e811ef2-b00d-4058-bb15-96cd7687402a.png)
 ![Explore Jobs Screen](https://user-images.githubusercontent.com/16952129/169740955-dcbb9fdf-88cb-4d9c-a3b1-6c18d0e393c2.png)
-![My Applicants Screen](https://user-images.githubusercontent.com/16952129/169740962-4c876a05-477c-44f1-887b-c0cb674f22a3.png)
+![My Applicants Screen](https://user-images.githubusercontent.com/16952129/169741189-6053a662-82aa-4877-85b1-7ddae201c0b2.png)
 ![Profile Screen](https://user-images.githubusercontent.com/16952129/169740943-9b81028f-dd55-4166-8609-6010970c99f7.png)
