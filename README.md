@@ -1,6 +1,6 @@
 # Ghawe!
 
-Jobs Seeker App UI/UX Design to Code
+Jobs Seeker App UI/UX Design to Code Implementation with Flutter
 - Figma Design https://www.figma.com/file/syVsQhmtgtrUmThtBx13Gq/Ghawe?node-id=0%3A1
 
 # Feature and Screen
